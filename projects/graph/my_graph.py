@@ -47,6 +47,36 @@ class Graph:
         pass
 
 
+    """
+    Returns a list containing a path from starting vertex
+    to destination vertex in depth-first order
+    Use recursion
+    """
+    def dfs_recursive(self, current_vertex, destination_vertex, path=[], visited=None):
+        if visited == None:
+            visited = set()
+
+        if current_vertex not in visited:
+            visited.add(current_vertex)
+
+        if len(path) == 0:
+            path.append(current_vertex)
+
+        if current_vertex == destination_vertex:
+            return path
+
+        neighbors = self.get_neighbors(current_vertex)
+
+        for neighbor in neighbors:
+            if neighbor not in visited:
+                # recurse
+                result = self.dfs_recursive(neighbor, destination_vertex, path + [neighbor], visited)
+
+                if result is not None:
+                    return result
+
+        return None
+
 
 if __name__ == "__main__":
 

@@ -17,6 +17,18 @@ class Graph:
     def get_neighbors(self, vertex_id):
         return self.vertices[vertex_id]
 
+    def dft(self, starting_vertex):
+        # initialize a stack
+        # put the first node (starting_vertex) in the stack
+
+        # while the stack is not empty
+            # pop the node from the stack and put it into the `current_node` variable
+
+            # if current_node is not visited
+            # # mark it as visited
+            # # get its neighbors
+            # # put the neighbors at the top of the stack
+
     def bft(self, starting_vertex):
         # make queue
         q = Queue()

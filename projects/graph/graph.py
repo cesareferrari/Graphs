@@ -112,28 +112,6 @@ class Graph:
             for neighbor in neighbors:
                 self.dft_recursive(neighbor, visited)
 
-    # Tim code
-    # def dft_recursive(self, vertex, visited=None):
-    #     """
-    #     Print each vertex in depth-first order
-    #     beginning from starting_vertex.
-
-    #     This should be done using recursion.
-    #     """
-    #     if visited == None:
-    #         visited = set()
-    #     # Check if we have been visited
-    #     if vertex not in visited:
-    #         print(vertex)
-    #         visited.add(vertex)
-    #     # Base case: if no neighbors
-    #         neighbors = self.get_neighbors(vertex)
-    #         if len(neighbors) == 0:
-    #             return visited
-    #     # If we do have neighbors, iterate over them and recurse for each one
-    #         for neighbor in neighbors:
-    #             self.dft_recursive(neighbor, visited)
-
 
 
     def bfs(self, starting_vertex, destination_vertex):

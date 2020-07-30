@@ -1,4 +1,4 @@
-from util import Queue
+from util import Queue, Stack
 
 
 class Graph:
@@ -19,20 +19,36 @@ class Graph:
 
     def dft(self, starting_vertex):
         # initialize a stack
+        s = Stack()
+
+        visited = set()
+
         # put the first node (starting_vertex) in the stack
+        s.push(starting_vertex)
 
         # while the stack is not empty
+        while s.size() > 0:
             # pop the node from the stack and put it into the `current_node` variable
+            current_node = s.pop()
 
             # if current_node is not visited
-            # # mark it as visited
-            # # get its neighbors
-            # # put the neighbors at the top of the stack
+            if current_node not in visited:
+                # # mark it as visited
+                visited.add(current_node)
+                print(current_node)
+                # # get its neighbors
+                neighbors = self.get_neighbors(current_node)
+                # # put the neighbors at the top of the stack
+                for neighbor in neighbors:
+                    s.push(neighbor)
+
+
 
     def bft(self, starting_vertex):
         # make queue
         q = Queue()
         # enqueue starting vertex
+        
         q.enqueue(starting_vertex)
 
         # track visited nodes using a set
@@ -107,6 +123,4 @@ if __name__ == "__main__":
     graph.add_edge('D', 'E')
 
     print(graph.vertices)
-    print(graph.get_neighbors('A'))
-    print(graph.get_neighbors('B'))
-    print(graph.bft('A'))
+    print(graph.dft('A'))

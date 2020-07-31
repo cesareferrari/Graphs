@@ -1,0 +1,19 @@
+Given two words (begin_word and end_word), and a dictionary's word list, return
+the shortest transformation sequence from begin_word to end_word, such that:
+
+Only one letter can be changed at a time.
+
+Each transformed word must exist in the word list. Note that begin_word is not a
+transformed word.
+
+start_word = "hit"
+end_word = "cog"
+
+return ["hit", "hot", "cot", "cog"]
+
+- Words can be viewed as nodes.
+- There is a connection between words (nodes) when they share all letters except
+  one. That would be the edges.
+- Since we need to find the shortest transformation, we can use Breadth first
+  traversal, because it finds the shortest path between two things.
+- It looks like the Breadth first search algorithm.

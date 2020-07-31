@@ -94,6 +94,31 @@ class Graph:
                     q.enqueue(neighbor_path)
 
 
+    def dfs_recursive(self, starting_vertex, destination_vertex, path=[], visited=None):
+
+        if visited == None:
+            visited = set()
+
+        if starting_vertex not in visited:
+            visited.add(starting_vertex)
+
+        if len(path) == 0:
+            path.append(starting_vertex)
+
+        if starting_vertex == destination_vertex:
+            return path
+
+        neighbors = self.get_neighbors(starting_vertex)
+
+        for neighbor in neighbors:
+            if neighbor not in visited:
+                # recurse
+                result = self.dfs_recursive(neighbor, destination_vertex, path + [neighbor], visited)
+                if result is not None:
+                    return result
+
+        return None
+
 
 
 

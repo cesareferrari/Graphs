@@ -11,7 +11,3 @@ class Player:
                 next_room.print_room_description(self)
         else:
             print("You cannot move in that direction.")
-
-    def pick_direction(self):
-        directions = self.current_room.get_exits()
-        return random.choice(directions)
